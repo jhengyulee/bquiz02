@@ -12,7 +12,7 @@ include_once "base.php";
     <title>健康促進網</title>
     <link href="./css/css.css" rel="stylesheet" type="text/css">
     <script src="./js/jquery-3.4.1.min.js"></script>
-    <script src="./jss/js.js"></script>
+    <script src="./js/js.js"></script>
 </head>
 
 <body>

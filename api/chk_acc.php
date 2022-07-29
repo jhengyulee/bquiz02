@@ -5,6 +5,7 @@ include_once "../base.php";
 // $chk=$User->find(['acc'=>$acc]);
 
 //直接count 產出1/0 判斷是否有acc
-echo $User->math('count','id',['acc'=>$_POST['acc']]); //['acc'=>$_POST['acc']]
+$acc=$_POST['acc']??$_GET['acc']; //不是由post就是get取值
+echo $User->math('count','id',['acc'=>$acc]); //['acc'=>$_POST['acc']]
 
 ?>
