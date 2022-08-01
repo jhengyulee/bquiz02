@@ -183,10 +183,11 @@ function dd($array)
 }
 //dd() end
 
-$Total = new DB('total'); //$Total是個物件object
+$Total = new DB('total'); //$Total為total資料表這個物件  以下類推
 $User = new DB('user');
 $News = new DB('news');
 $Que = new DB('que');
+$Log = new DB('log');
 // -----------------------------------------------------
 //瀏覽人次判斷及計算
 if (!isset($_SESSION['total'])) {
