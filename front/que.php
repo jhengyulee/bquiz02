@@ -1,6 +1,6 @@
 <fieldset>
     <legend>目前位置：首頁 > 問卷調查</legend>
-    <table>
+    <table style="width:95%;margin:auto">
         <tr>
             <th class="ct">編號</th>
             <th class="ct" width="60%">問卷題目</th>

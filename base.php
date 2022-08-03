@@ -127,10 +127,8 @@ class DB
     //math() end
 
     //save()
-    function save($array)
-    {
-
-
+    function save($array){
+        
         if (isset($array['id'])) {
             //更新
             foreach ($array as $key => $val) {
@@ -141,7 +139,7 @@ class DB
         } else {
             //新增   單雙上引號易出錯  務必注意------------------------------------------------------
             $sql = "INSERT INTO $this->table (`" . join("`,`", array_keys($array)) . "`) 
-                                    VALUES ('" . join("','", $array) . "')";
+                                       VALUES ('" . join("','", $array) . "')";
         }
 
 

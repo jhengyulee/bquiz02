@@ -10,7 +10,7 @@ $options=$Que->all(['subject_id'=>$_GET['id']]);
     <?php
         foreach($options as $opt){
             echo "<p>";
-            echo "<input type='radio' name='opt' value='{$opt['id']}'";
+            echo "<input type='radio' name='opt' value='{$opt['id']}'>";
             echo $opt['text'];
             echo "</p>";
         }

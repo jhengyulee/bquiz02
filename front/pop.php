@@ -10,11 +10,11 @@
         </tr>
         <!-- -------------------分頁 -->
         <?php
-        $all=$News->math('count','id',['sh'=>1]);
-        $div=5;
-        $pages=ceil($all/$div);
-        $now=$_GET['p']??1;    /** $_GET['p']從哪來 */
-        $start=($now-1)*$div;
+        $all=$News->math('count','id',['sh'=>1]);//要顯示的資料共有幾筆
+        $div=5;//要呈現在畫面上的資料數量
+        $pages=ceil($all/$div);//無條件進位
+        $now=$_GET['p']??1;    //$_GET['p']從哪來 ---> 下面for迴圈 
+        $start=($now-1)*$div; //$start是什麼?
 
         $rows=$News->all(['sh'=>1]," order by good desc limit $start,$div"); //good數由大到小排列
 
@@ -33,7 +33,7 @@
                <?php
                if(isset($_SESSION['user'])){
                 if($Log->math('count','id',['news'=>$row['id'],'user'=>$_SESSION['user']])>0){
-                    echo "- <a class='great' href='#' data-id='{$row['id']}'>收回讚</a>";
+                    echo "- <a class='great' href='#' data-id='{$row['id']}'>收回讚</a>";  
                 }else{
 
                     echo "- <a class='great' href='#' data-id='{$row['id']}'>讚</a>";

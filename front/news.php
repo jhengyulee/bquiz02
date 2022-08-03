@@ -7,39 +7,39 @@
             <td width="50%">內容</td>
             <td width="20%"></td>
         </tr>
-        <!-- -------------------分頁 -->
+        <!-- -------------------分頁  不理解 -->
         <?php
         $all=$News->math('count','id',['sh'=>1]);
         $div=5;
         $pages=ceil($all/$div);
-        $now=$_GET['p']??1;    /** $_GET['p']從哪來 */
-        $start=($now-1)*$div;
+        $now=$_GET['p']??1;    /**當前頁數 $_GET['p']從哪來===>下面for迴圈 */
+        $start=($now-1)*$div; //$start是什麼?
 
         $rows=$News->all(['sh'=>1]," limit $start,$div");
+        // ---------------------------------
 
         foreach($rows as $row){
-
-       
         ?>
         <tr>
-            <td class="title clo"><?=$row['title'];?></td>
-            <td><span class="summary"><?=mb_substr($row['text'],0,20);?>...</span> <!--內容從0開始取20字-->
+            <td class="title clo" style="cursor:pointer"><?=$row['title'];?></td>
+            <td>
+                <span class="summary"><?=mb_substr($row['text'],0,20);?>...</span> <!--內容從0開始取20字-->
                 <span class="full" style="display:none"><?=nl2br($row['text']);?></span>
             </td>
-            <td>
             
+            <td>
             <?php
                if(isset($_SESSION['user'])){
                 if($Log->math('count','id',['news'=>$row['id'],'user'=>$_SESSION['user']])>0){
-                    echo "- <a class='great' href='#' data-id='{$row['id']}'>收回讚</a>";
+                    echo "<a class='great' href='#' data-id='{$row['id']}'>收回讚</a>";
                 }else{
 
-                    echo "- <a class='great' href='#' data-id='{$row['id']}'>讚</a>";
+                    echo "<a class='great' href='#' data-id='{$row['id']}'>讚</a>";
                 }
                
                 }
                ?>
-               </td>
+            </td>
         </tr>
         <?php
         }
